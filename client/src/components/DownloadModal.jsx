@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { post as apiPost } from "../utils/api.js";
+import { extractUserMessage } from "../utils/error.js";
 
 export default function DownloadModal({ open, onClose, onSuccess }) {
 	const [fullName, setFullName] = useState("");
@@ -24,7 +25,7 @@ export default function DownloadModal({ open, onClose, onSuccess }) {
 			onClose?.();
 			onSuccess?.("Our team will reach you soon. Thank you for your interest.");
 		} catch (err) {
-			setMessage(err?.response?.data?.error || "Something went wrong. Please try again.");
+			setMessage(extractUserMessage(err, "Something went wrong. Please try again."));
 		} finally {
 			setSubmitting(false);
 		}
@@ -80,7 +81,7 @@ export default function DownloadModal({ open, onClose, onSuccess }) {
 								<button type="submit" disabled={submitting} className="btn-primary disabled:opacity-60">
 									{submitting ? "Submitting..." : "Submit"}
 								</button>
-								{message && <div className="text-sm text-midnight/70">{message}</div>}
+								{message && <div className="text-sm text-midnight/70">{String(message)}</div>}
 							</div>
 						</form>
 					</motion.div>
