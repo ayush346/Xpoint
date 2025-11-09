@@ -1,0 +1,16 @@
+{
+  "name": "xpointweb",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Beautiful MERN website with blue/white/black theme, animations, and text upload flow",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
+
+
