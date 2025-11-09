@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
+import { post as apiPost } from "../utils/api.js";
 
 export default function EarlyAccessModal({ open, onClose, onSuccess }) {
 	const [fullName, setFullName] = useState("");
@@ -19,7 +19,7 @@ export default function EarlyAccessModal({ open, onClose, onSuccess }) {
 		}
 		try {
 			setSubmitting(true);
-			await axios.post("/api/notify/early-access", { fullName, role, phone, email });
+			await apiPost("/api/notify/early-access", { fullName, role, phone, email });
 			setFullName(""); setPhone(""); setEmail("");
 			onClose?.();
 			onSuccess?.("Our team will reach you soon. Thank you for your interest.");

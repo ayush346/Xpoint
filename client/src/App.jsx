@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
+import { post as apiPost } from "./utils/api.js";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import EarlyAccessModal from "./components/EarlyAccessModal.jsx";
@@ -23,7 +23,7 @@ export default function App() {
 		if (!email.trim()) return;
 		try {
 			setWaitlistStatus("Submitting...");
-			await axios.post("/api/notify/waitlist", { email });
+			await apiPost("/api/notify/waitlist", { email });
 			setWaitlistStatus("You're on the list! 🎉");
 			setEmail("");
 		} catch {
@@ -46,7 +46,7 @@ export default function App() {
 						whileInView="show"
 						viewport={{ once: true, amount: 0.2 }}
 						variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-						className="grid md:grid-cols-4 gap-6"
+						className="grid sm:grid-cols-2 md:grid-cols-4 gap-6"
 					>
 						<FeatureCard icon="📍" title="Find Shops" text="Discover trusted print shops near your campus." delay={0.0} />
 						<FeatureCard icon="📤" title="Upload Docs" text="Upload documents directly from your phone — anytime, anywhere." delay={0.06} />
@@ -62,17 +62,17 @@ export default function App() {
 							<p className="text-midnight/80">Join our exclusive waitlist and be part of the early access program. Get special discounts and early bird rewards when we launch!</p>
 							<p className="text-midnight/70 text-sm">📈 500+ Students Already Interested • 🎁 Early birds get 50% off their first 5 orders</p>
 						</div>
-						<form onSubmit={joinWaitlist} className="card p-6 flex items-center gap-3">
+						<form onSubmit={joinWaitlist} className="card p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
 							<input
 								type="email"
 								required
 								placeholder="Enter your email"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
-								className="flex-1 rounded-lg border border-slate-300/80 bg-white px-3 py-3 text-midnight placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-300"
+								className="w-full sm:flex-1 rounded-lg border border-slate-300/80 bg-white px-3 py-3 text-midnight placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-300"
 							/>
-							<button type="submit" className="btn-primary">Join Waitlist</button>
-							{waitlistStatus && <div className="text-sm text-midnight/70 ml-2">{waitlistStatus}</div>}
+							<button type="submit" className="btn-primary w-full sm:w-auto">Join Waitlist</button>
+							{waitlistStatus && <div className="text-sm text-midnight/70 mt-2 sm:mt-0 sm:ml-2">{waitlistStatus}</div>}
 						</form>
 					</div>
 				</section>
@@ -126,7 +126,7 @@ export default function App() {
 								<li>Earn visibility through the Xpoint platform.</li>
 							</ul>
 							<div className="mt-6 flex items-center gap-3">
-								<button type="button" onClick={() => setShowDownload(true)} className="btn-secondary">Schedule a Demo</button>
+								<button type="button" onClick={() => setShowDownload(true)} className="btn-secondary w-full sm:w-auto">Schedule a Demo</button>
 							</div>
 						</div>
 						<div className="card p-6">
@@ -174,7 +174,7 @@ export default function App() {
 								</li>
 							</ul>
 						</div>
-						<div className="md:text-right flex md:block items-end">
+						<div className="text-center md:text-right md:block mt-4 md:mt-0">
 							<div className="text-midnight/60">©2025 Xpoint pvt ltd. All Rights Reserved</div>
 						</div>
 					</div>

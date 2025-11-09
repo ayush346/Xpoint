@@ -25,13 +25,13 @@ export default function Hero({ onOpenEarlyAccess, onOpenPartner, onOpenDownload 
 					Your campus life deserves speed — print in seconds and spend more time where it matters: with your friends, your goals, and your memories.
 				</motion.p>
 				<motion.div
-					className="mt-10 flex flex-wrap md:flex-nowrap items-center gap-3"
+					className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
 					initial={{ opacity: 0, y: 8 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.2 }}
 				>
-					<button type="button" onClick={onOpenEarlyAccess} className="btn-primary">Get Early Access</button>
-					<button type="button" onClick={onOpenDownload} className="btn-solid-yellow">Download for Desktop</button>
+					<button type="button" onClick={onOpenEarlyAccess} className="btn-primary w-full sm:w-auto">Get Early Access</button>
+					<button type="button" onClick={onOpenDownload} className="btn-solid-yellow w-full sm:w-auto">Download for Desktop</button>
 				</motion.div>
 			</div>
 		</section>

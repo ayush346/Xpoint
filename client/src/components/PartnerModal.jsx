@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
+import { post as apiPost } from "../utils/api.js";
 
 const COUNTRY_CODES = [
 	{ code: "+1", label: "United States / Canada" },
@@ -29,7 +29,7 @@ export default function PartnerModal({ open, onClose, onSuccess }) {
 		}
 		try {
 			setSubmitting(true);
-			await axios.post("/api/notify/partner", {
+			await apiPost("/api/notify/partner", {
 				fullName, countryCode, phone, country, email, address
 			});
 			setFullName(""); setPhone(""); setCountry(""); setEmail(""); setAddress("");
