@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import contentRouter from "./routes/content.js";
 import waitlistRouter from "./routes/waitlist.js";
 import notifyRouter from "./routes/notify.js";
+import downloadRouter from "./routes/download.js";
 
 dotenv.config();
 
@@ -49,6 +50,7 @@ app.use((req, _res, next) => {
 app.use("/api/content", contentRouter);
 app.use("/api/waitlist", waitlistRouter);
 app.use("/api/notify", notifyRouter);
+app.use("/api/download", downloadRouter);
 
 // Serve client build in production
 const __filename = fileURLToPath(import.meta.url);

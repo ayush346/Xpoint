@@ -20,11 +20,15 @@ export default function App() {
 
 	async function downloadInstaller() {
 		const rawFileName = "XPOINTSetup.exe";
-		const baseUrlRaw = (import.meta?.env?.BASE_URL || "/");
-		const baseUrl = baseUrlRaw.endsWith("/") ? baseUrlRaw : `${baseUrlRaw}/`;
-		const fileUrl = `${baseUrl}${encodeURIComponent(rawFileName)}`;
+		// Prefer API route so production hosts always serve the binary with correct headers.
+		// In dev, Vite proxy forwards /api to the Express server.
+		const apiBase = (import.meta?.env?.VITE_API_BASE_URL || "").replace(/\/$/, "");
+		const apiUrl = `${apiBase}/api/download/installer`;
+		// As a final fallback, try static path if API is unreachable.
+		const staticBase = (import.meta?.env?.BASE_URL || "/");
+		const staticUrl = `${staticBase.endsWith("/") ? staticBase : staticBase + "/"}${encodeURIComponent(rawFileName)}`;
 		try {
-			const response = await fetch(fileUrl, { method: "GET" });
+			const response = await fetch(apiUrl, { method: "GET" });
 			if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
 			const blob = await response.blob();
 			const blobUrl = URL.createObjectURL(blob);
@@ -37,7 +41,7 @@ export default function App() {
 			setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
 		} catch (_err) {
 			const link = document.createElement("a");
-			link.href = fileUrl;
+			link.href = staticUrl;
 			link.setAttribute("download", rawFileName);
 			document.body.appendChild(link);
 			link.click();
