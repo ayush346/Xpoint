@@ -18,6 +18,33 @@ export default function App() {
 	const [alertMessage, setAlertMessage] = useState("Our team will reach you soon. Thank you for your interest.");
 	const [waitlistStatus, setWaitlistStatus] = useState("");
 
+	async function downloadInstaller() {
+		const rawFileName = "XPOINTSetup.exe";
+		const baseUrlRaw = (import.meta?.env?.BASE_URL || "/");
+		const baseUrl = baseUrlRaw.endsWith("/") ? baseUrlRaw : `${baseUrlRaw}/`;
+		const fileUrl = `${baseUrl}${encodeURIComponent(rawFileName)}`;
+		try {
+			const response = await fetch(fileUrl, { method: "GET" });
+			if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
+			const blob = await response.blob();
+			const blobUrl = URL.createObjectURL(blob);
+			const link = document.createElement("a");
+			link.href = blobUrl;
+			link.setAttribute("download", rawFileName);
+			document.body.appendChild(link);
+			link.click();
+			link.remove();
+			setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+		} catch (_err) {
+			const link = document.createElement("a");
+			link.href = fileUrl;
+			link.setAttribute("download", rawFileName);
+			document.body.appendChild(link);
+			link.click();
+			link.remove();
+		}
+	}
+
 	async function joinWaitlist(e) {
 		e?.preventDefault();
 		if (!email.trim()) return;
@@ -35,7 +62,7 @@ export default function App() {
 		<div className="min-h-screen flex flex-col">
 			<Navbar />
 			<main className="flex-1">
-				<Hero onOpenEarlyAccess={() => setShowEarlyAccess(true)} onOpenPartner={() => setShowPartner(true)} onOpenDownload={() => setShowDownload(true)} />
+				<Hero onOpenEarlyAccess={() => setShowEarlyAccess(true)} onOpenPartner={() => setShowPartner(true)} onOpenDownload={downloadInstaller} />
 
 				<section id="features" className="container-padded py-12 md:py-16">
 					<div className="mb-6 md:mb-8">
