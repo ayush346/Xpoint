@@ -1,10 +1,21 @@
+import { motion } from "framer-motion";
 import PageHeader from "../components/PageHeader.jsx";
 
 export default function DeleteAccount() {
+	const listContainer = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+	const listItem = { hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } };
+
 	return (
 		<>
 			<PageHeader title="Delete Account" subtitle="Manage your data and deletion requests" />
-			<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
+			<section className="container-padded py-10 md:py-16">
+				<motion.div
+					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify"
+					initial={{ opacity: 0, y: 12 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, amount: 0.2 }}
+					transition={{ duration: 0.5 }}
+				>
 					<h1 className="text-3xl font-black text-midnight">Delete Account – Xpoint</h1>
 					<p>
 						Xpoint respects user privacy and provides users with full control over their personal data.
@@ -23,12 +34,17 @@ export default function DeleteAccount() {
 
 					<h3 className="mt-6 text-xl font-bold text-midnight">What data will be deleted</h3>
 					<p>Upon successful verification, Xpoint will permanently delete the following data associated with your account:</p>
-					<ul>
-						<li>User account and profile information</li>
-						<li>Registered phone number and contact details</li>
-						<li>Uploaded documents for printing</li>
-						<li>Order history linked to the account</li>
-					</ul>
+					<motion.ul
+						variants={listContainer}
+						initial="hidden"
+						whileInView="show"
+						viewport={{ once: true, amount: 0.2 }}
+					>
+						<motion.li variants={listItem}>User account and profile information</motion.li>
+						<motion.li variants={listItem}>Registered phone number and contact details</motion.li>
+						<motion.li variants={listItem}>Uploaded documents for printing</motion.li>
+						<motion.li variants={listItem}>Order history linked to the account</motion.li>
+					</motion.ul>
 
 					<h3 className="mt-6 text-xl font-bold text-midnight">Data retention</h3>
 					<p>
@@ -44,6 +60,7 @@ export default function DeleteAccount() {
 					<p>
 						For any questions or clarifications, please contact us at <a href="mailto:contact@xpointweb.com" className="text-primary-600 hover:underline">contact@xpointweb.com</a>.
 					</p>
+				</motion.div>
 			</section>
 		</>
 	);

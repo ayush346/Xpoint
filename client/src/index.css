@@ -139,3 +139,10 @@ body {
 }
 
 
+/* Helper to justify long-form content (paragraphs and list items) */
+.prose-justify p,
+.prose-justify li {
+	text-align: justify;
+}
+
+

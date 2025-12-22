@@ -1,12 +1,20 @@
+import { motion } from "framer-motion";
 import PageHeader from "../components/PageHeader.jsx";
 
 export default function TermsPrivacy() {
 	return (
 		<>
 			<PageHeader title="Terms &amp; Policies" subtitle="Last reviewed on: 21 December 2025" />
-			<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
-				<h1 className="text-3xl font-black text-midnight">Terms of Use – Xpoint</h1>
-				<p className="text-midnight/70">Effective as of: 21 December 2025</p>
+			<section className="container-padded py-10 md:py-16">
+				<motion.div
+					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify"
+					initial={{ opacity: 0, y: 12 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, amount: 0.2 }}
+					transition={{ duration: 0.5 }}
+				>
+					<h1 className="text-3xl font-black text-midnight">Terms of Use – Xpoint</h1>
+					<p className="text-midnight/70">Effective as of: 21 December 2025</p>
 
 				<h3 className="mt-6 text-xl font-bold text-midnight">1. Acceptance of Terms</h3>
 				<p>
@@ -151,10 +159,11 @@ export default function TermsPrivacy() {
 					For privacy concerns, contact: <a href="mailto:contact@xpointweb.com" className="text-primary-600 hover:underline">contact@xpointweb.com</a>.
 				</p>
 
-				<h3 className="mt-6 text-xl font-bold text-midnight">13. Governing Law</h3>
-				<p>
-					This Privacy Policy is governed by the laws of India.
-				</p>
+					<h3 className="mt-6 text-xl font-bold text-midnight">13. Governing Law</h3>
+					<p>
+						This Privacy Policy is governed by the laws of India.
+					</p>
+				</motion.div>
 			</section>
 		</>
 	);
