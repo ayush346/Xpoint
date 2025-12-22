@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import TermsPrivacy from "./pages/TermsPrivacy.jsx";
 import DeleteAccount from "./pages/DeleteAccount.jsx";
 import Layout from "./components/Layout.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./index.css";
 import { setupGlobalWave } from "./utils/wave.js";
 import { ErrorBoundary } from "./ErrorBoundary.jsx";
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ErrorBoundary>
 			<Router>
+				<ScrollToTop />
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<App />} />

@@ -78,7 +78,7 @@ export default function TermsPrivacy() {
 			<PageHeader title="Terms &amp; Policies" subtitle="Last reviewed on: 21 December 2025" />
 			<section className="container-padded py-10 md:py-16 grid gap-6 max-w-3xl mx-auto">
 				{sections.map((s, i) => (
-					<Section key={s.heading} index={i} heading={s.heading} body={s.body} />
+					<Section key={s.heading} index={i} heading={s.heading} body={s.body} renderLegal renderLegalHeadings />
 				))}
 			</section>
 		</>

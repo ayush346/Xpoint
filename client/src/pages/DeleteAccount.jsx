@@ -24,9 +24,7 @@ export default function DeleteAccount() {
 
 					<h3 className="mt-6 text-xl font-bold text-midnight">How to request account deletion</h3>
 					<p>
-						To request deletion of your Xpoint account and associated data, please send an email from your registered email address or phone number to:
-					</p>
-					<p>
+						To request deletion of your Xpoint account and associated data, please send an email from your registered email address or phone number to:<br />
 						<a href="mailto:contact@xpointweb.com" className="text-primary-600 hover:underline">contact@xpointweb.com</a>
 					</p>
 					<p>
