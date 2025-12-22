@@ -27,6 +27,12 @@ function resolveInstallerPath() {
 }
 
 router.get("/installer", (req, res) => {
+	// If an external storage/CDN URL is provided, redirect there to avoid size limits on hosts
+	const externalUrl = process.env.INSTALLER_URL;
+	if (externalUrl && typeof externalUrl === "string" && externalUrl.trim().length > 0) {
+		return res.redirect(302, externalUrl.trim());
+	}
+
 	const installerPath = resolveInstallerPath();
 	if (!installerPath) {
 		return res.status(404).json({ error: "Installer not found on server." });
