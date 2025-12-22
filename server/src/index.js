@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import contentRouter from "./routes/content.js";
 import waitlistRouter from "./routes/waitlist.js";
@@ -52,12 +53,16 @@ app.use("/api/waitlist", waitlistRouter);
 app.use("/api/notify", notifyRouter);
 app.use("/api/download", downloadRouter);
 
-// Serve client build in production
+// Serve client build (SPA) when available
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const clientDistPath = path.resolve(__dirname, "../../client/dist");
 
-if (process.env.NODE_ENV === "production") {
+const shouldServeClient =
+	(process.env.SERVE_CLIENT ?? "true") !== "false" &&
+	(process.env.NODE_ENV === "production" || fs.existsSync(path.join(clientDistPath, "index.html")));
+
+if (shouldServeClient) {
 	app.use(express.static(clientDistPath));
 	app.get("*", (_req, res) => {
 		res.sendFile(path.join(clientDistPath, "index.html"));
