@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
 	return (
 		<footer className="border-t border-slate-200">
@@ -23,10 +25,10 @@ export default function Footer() {
 					<div className="text-center md:text-right md:block mt-4 md:mt-0">
 						<div className="text-midnight/60">©2025 Xpoint pvt ltd. All Rights Reserved</div>
 						<div className="mt-2">
-							<a href="/terms-policies" className="text-primary-600 hover:underline">Terms &amp; Policies</a>
+							<Link to="/terms-policies" className="text-primary-600 hover:underline">Terms &amp; Policies</Link>
 						</div>
 						<div className="mt-1">
-							<a href="/delete-account" className="text-primary-600 hover:underline">Delete Account</a>
+							<Link to="/delete-account" className="text-primary-600 hover:underline">Delete Account</Link>
 						</div>
 					</div>
 				</div>

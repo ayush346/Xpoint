@@ -1,12 +1,6 @@
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
-
 export default function DeleteAccount() {
 	return (
-		<div className="min-h-screen flex flex-col">
-			<Navbar />
-			<main className="flex-1">
-				<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
+		<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
 					<h1 className="text-3xl font-black text-midnight">Delete Account – Xpoint</h1>
 					<p>
 						Xpoint respects user privacy and provides users with full control over their personal data.
@@ -46,10 +40,7 @@ export default function DeleteAccount() {
 					<p>
 						For any questions or clarifications, please contact us at <a href="mailto:contact@xpointweb.com" className="text-primary-600 hover:underline">contact@xpointweb.com</a>.
 					</p>
-				</section>
-			</main>
-			<Footer />
-		</div>
+		</section>
 	);
 }
 

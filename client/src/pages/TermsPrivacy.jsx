@@ -1,12 +1,6 @@
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
-
 export default function TermsPrivacy() {
 	return (
-		<div className="min-h-screen flex flex-col">
-			<Navbar />
-			<main className="flex-1">
-				<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
+		<section className="container-padded py-10 md:py-14 prose prose-slate max-w-none">
 					<h1 className="text-3xl font-black text-midnight">Terms of Use – Xpoint</h1>
 					<p className="text-midnight/70">Effective as of: 21 December 2025</p>
 
@@ -157,10 +151,7 @@ export default function TermsPrivacy() {
 					<p>
 						This Privacy Policy is governed by the laws of India.
 					</p>
-				</section>
-			</main>
-			<Footer />
-		</div>
+		</section>
 	);
 }
 
