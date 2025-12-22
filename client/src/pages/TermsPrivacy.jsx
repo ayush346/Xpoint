@@ -7,12 +7,13 @@ export default function TermsPrivacy() {
 			<PageHeader title="Terms &amp; Policies" subtitle="Last reviewed on: 21 December 2025" />
 			<section className="container-padded py-10 md:py-16">
 				<motion.div
-					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify"
+					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify max-w-3xl mx-auto space-y-6 divide-y divide-slate-200"
 					initial={{ opacity: 0, y: 12 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, amount: 0.2 }}
 					transition={{ duration: 0.5 }}
 				>
+					<div className="bg-gradient-to-r from-primary-300/60 to-cyan-300/60 h-1 rounded-full mb-2"></div>
 					<h1 className="text-3xl font-black text-midnight">Terms of Use – Xpoint</h1>
 					<p className="text-midnight/70">Effective as of: 21 December 2025</p>
 

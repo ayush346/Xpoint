@@ -10,12 +10,13 @@ export default function DeleteAccount() {
 			<PageHeader title="Delete Account" subtitle="Manage your data and deletion requests" />
 			<section className="container-padded py-10 md:py-16">
 				<motion.div
-					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify"
+					className="card p-6 md:p-8 prose prose-slate max-w-none prose-justify max-w-3xl mx-auto space-y-6 divide-y divide-slate-200"
 					initial={{ opacity: 0, y: 12 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, amount: 0.2 }}
 					transition={{ duration: 0.5 }}
 				>
+					<div className="bg-gradient-to-r from-primary-300/60 to-cyan-300/60 h-1 rounded-full mb-2"></div>
 					<h1 className="text-3xl font-black text-midnight">Delete Account – Xpoint</h1>
 					<p>
 						Xpoint respects user privacy and provides users with full control over their personal data.
