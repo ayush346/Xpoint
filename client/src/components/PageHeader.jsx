@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function PageHeader({ title, subtitle }) {
 	return (
 		<section className="gradient-hero border-b border-slate-200">
-			<div className="container-padded py-10 md:py-14">
+			<div className="container-padded py-6 md:py-14">
 				<motion.div
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
