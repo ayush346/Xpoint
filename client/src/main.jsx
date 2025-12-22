@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import TermsPrivacy from "./pages/TermsPrivacy.jsx";
 import DeleteAccount from "./pages/DeleteAccount.jsx";
@@ -10,10 +10,11 @@ import { setupGlobalWave } from "./utils/wave.js";
 import { ErrorBoundary } from "./ErrorBoundary.jsx";
 
 setupGlobalWave();
+const Router = import.meta.env.MODE === "production" ? HashRouter : BrowserRouter;
 createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ErrorBoundary>
-			<BrowserRouter>
+			<Router>
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<App />} />
@@ -22,7 +23,7 @@ createRoot(document.getElementById("root")).render(
 						<Route path="delete-account" element={<DeleteAccount />} />
 					</Route>
 				</Routes>
-			</BrowserRouter>
+			</Router>
 		</ErrorBoundary>
 	</React.StrictMode>
 );
