@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { post as apiPost } from "./utils/api.js";
-import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import EarlyAccessModal from "./components/EarlyAccessModal.jsx";
 import PartnerModal from "./components/PartnerModal.jsx";
 import FeatureCard from "./components/FeatureCard.jsx";
 import DownloadModal from "./components/DownloadModal.jsx";
-import Footer from "./components/Footer.jsx";
 import AlertModal from "./components/AlertModal.jsx";
 
 export default function App() {
@@ -65,7 +63,6 @@ export default function App() {
 
 	return (
 		<div className="min-h-screen flex flex-col">
-			<Navbar />
 			<main className="flex-1">
 				<Hero onOpenEarlyAccess={() => setShowEarlyAccess(true)} onOpenPartner={() => setShowPartner(true)} onOpenDownload={downloadInstaller} />
 
@@ -168,7 +165,6 @@ export default function App() {
 					</div>
 				</section>
 			</main>
-
 			<EarlyAccessModal
 				open={showEarlyAccess}
 				onClose={() => setShowEarlyAccess(false)}
@@ -185,8 +181,6 @@ export default function App() {
 				onSuccess={(msg) => { setAlertMessage(msg || "Our team will reach you soon. Thank you for your interest."); setShowAlert(true); }}
 			/>
 			<AlertModal open={showAlert} onClose={() => setShowAlert(false)} message={alertMessage} />
-
-			<Footer />
 		</div>
 	);
 }
