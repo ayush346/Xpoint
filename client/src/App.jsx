@@ -17,35 +17,13 @@ export default function App() {
 	const [alertMessage, setAlertMessage] = useState("Our team will reach you soon. Thank you for your interest.");
 	const [waitlistStatus, setWaitlistStatus] = useState("");
 
-	async function downloadInstaller() {
-		const rawFileName = "XPOINTSetup.exe";
-		// Prefer API route so production hosts always serve the binary with correct headers.
-		// In dev, Vite proxy forwards /api to the Express server.
-		const apiBase = (import.meta?.env?.VITE_API_BASE_URL || "").replace(/\/$/, "");
-		const apiUrl = `${apiBase}/api/download/installer`;
-		// As a final fallback, try static path if API is unreachable.
-		const staticBase = (import.meta?.env?.BASE_URL || "/");
-		const staticUrl = `${staticBase.endsWith("/") ? staticBase : staticBase + "/"}${encodeURIComponent(rawFileName)}`;
-		try {
-			const response = await fetch(apiUrl, { method: "GET" });
-			if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
-			const blob = await response.blob();
-			const blobUrl = URL.createObjectURL(blob);
-			const link = document.createElement("a");
-			link.href = blobUrl;
-			link.setAttribute("download", rawFileName);
-			document.body.appendChild(link);
-			link.click();
-			link.remove();
-			setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
-		} catch (_err) {
-			const link = document.createElement("a");
-			link.href = staticUrl;
-			link.setAttribute("download", rawFileName);
-			document.body.appendChild(link);
-			link.click();
-			link.remove();
-		}
+	function downloadInstaller() {
+		const link = document.createElement("a");
+		link.href = "https://xpoint-uploads-prod.s3.ap-south-1.amazonaws.com/XpointDesktopApp/XPOINT-Setup-1.0.3.exe";
+		link.setAttribute("download", "XPOINT-Setup-1.0.3.exe");
+		document.body.appendChild(link);
+		link.click();
+		link.remove();
 	}
 
 	async function joinWaitlist(e) {
