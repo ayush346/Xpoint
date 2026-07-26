@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import TermsPrivacy from "./pages/TermsPrivacy.jsx";
 import DeleteAccount from "./pages/DeleteAccount.jsx";
+import PayoutLogin from "./pages/PayoutLogin.jsx";
+import PayoutsOverview from "./pages/PayoutsOverview.jsx";
+import PayoutDetail from "./pages/PayoutDetail.jsx";
+import RequireAdminAuth from "./payout/RequireAdminAuth.jsx";
 import Layout from "./components/Layout.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./index.css";
@@ -22,6 +26,9 @@ createRoot(document.getElementById("root")).render(
 						<Route path="terms-policies" element={<TermsPrivacy />} />
 						<Route path="terms-privacy" element={<Navigate to="/terms-policies" replace />} />
 						<Route path="delete-account" element={<DeleteAccount />} />
+						<Route path="admin/payouts/login" element={<PayoutLogin />} />
+						<Route path="admin/payouts" element={<RequireAdminAuth><PayoutsOverview /></RequireAdminAuth>} />
+						<Route path="admin/payouts/:payoutId" element={<RequireAdminAuth><PayoutDetail /></RequireAdminAuth>} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
