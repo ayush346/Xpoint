@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--bg-surface: #ffffff;
+	--bg-ink: #0b132b;
+	--brand: #0ea5e9;
+	--brand-strong: #0284c7;
+	--brand-dark: #0b4a6f;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	font-family: theme(fontFamily.sans);
+	background: var(--bg-surface);
+	color: var(--bg-ink);
+}
+
+.container-padded {
+	@apply max-w-6xl mx-auto px-6;
+}
+
+.btn {
+	@apply relative inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold transition-all duration-300 focus:outline-none;
+	backdrop-filter: blur(16px);
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	background:
+		radial-gradient(120% 100% at 0% 0%, rgba(14, 165, 233, 0.18), rgba(255, 255, 255, 0.08)) ,
+		linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.15));
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.45),
+		0 10px 30px rgba(14,165,233,.20);
+}
+.btn::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient( to right, rgba(255,255,255,.0) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.0) 100% );
+	transform: translateX(-120%);
+	transition: transform .6s ease;
+}
+.btn:hover::before { transform: translateX(120%); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+	@apply btn text-midnight;
+	border-color: rgba(14,165,233,.45);
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.5),
+		0 12px 30px rgba(14,165,233,.28);
+}
+.btn-secondary {
+	@apply btn text-midnight/90;
+	background:
+		linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.12));
+	border-color: rgba(2,132,199,.35);
+}
+
+/* Solid blue button (no gradient), matches hero text blue */
+.btn-solid-blue {
+	@apply btn text-white;
+	background-color: #0284c7; /* primary-500 */
+	border-color: rgba(2,132,199,.6);
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.25),
+		0 10px 26px rgba(2,132,199,.35);
+}
+
+/* Solid yellow button variant */
+.btn-solid-yellow {
+	@apply btn text-midnight;
+	background-color: #f59e0b; /* amber-500 */
+	border-color: rgba(245,158,11,.6);
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.25),
+		0 10px 26px rgba(245,158,11,.35);
+}
+
+.card {
+	@apply rounded-2xl bg-white/70 backdrop-blur border border-slate-200 shadow-card;
+}
+
+.gradient-hero {
+	background: radial-gradient(1200px 600px at 10% -10%, rgba(14,165,233,.25), transparent 60%),
+		radial-gradient(700px 500px at 90% 10%, rgba(2,132,199,.25), transparent 50%),
+		linear-gradient(180deg, #ffffff 0%, #f8fbff 60%, #f1f5f9 100%);
+}
+
+/* Fancy animated helpers */
+@keyframes shimmer {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 200% 50%; }
+}
+.animate-shimmer {
+	background-size: 200% 100%;
+	animation: shimmer 6s linear infinite;
+}
+
+@keyframes float {
+	0% { transform: translateY(0px); }
+	50% { transform: translateY(-8px); }
+	100% { transform: translateY(0px); }
+}
+.float-slow {
+	animation: float 6s ease-in-out infinite;
+}
+
+/* Global wave ripple effect */
+.wave-ripple {
+	position: fixed;
+	z-index: 60;
+	pointer-events: none;
+	border-radius: 9999px;
+	background: radial-gradient(circle at center,
+		rgba(14,165,233,0.30) 0%,
+		rgba(14,165,233,0.22) 25%,
+		rgba(14,165,233,0.12) 45%,
+		rgba(255,255,255,0.0) 70%);
+	box-shadow: 0 0 60px rgba(14,165,233,0.25), 0 0 120px rgba(14,165,233,0.15);
+	transform: scale(0.001);
+	animation: wave-scale 900ms ease-out forwards;
+	mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: reduce) {
+	.wave-ripple { animation-duration: 0ms; }
+}
+@keyframes wave-scale {
+	to {
+		transform: scale(1);
+		opacity: 0;
+		filter: blur(1px);
+	}
+}
+
+
+/* Helper to justify long-form content (paragraphs and list items) */
+.prose-justify p,
+.prose-justify li {
+	text-align: justify;
+}
+
+

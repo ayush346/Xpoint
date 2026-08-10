@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark">
+    <title>Xpoint — Timeless Black & White Design</title>
+    <meta name="description" content="A professional, consistent, black-and-white website template ready for your content." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Xpoint Home">
+          <img src="assets/logo.svg" alt="Xpoint logo" width="28" height="28" />
+          <span class="brand-text">Xpoint</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <ul id="nav-menu" class="nav-menu">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a class="btn btn--small btn--solid" href="#contact">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section hero">
+        <div class="hero-bg">
+          <img src="assets/hero-grid.svg" alt="" aria-hidden="true" />
+        </div>
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1>Timeless design in black & white.</h1>
+            <p class="lead">A clean, professional foundation for your next website. Replace this copy with your content and go live fast—staying consistent across every page.</p>
+            <div class="hero-cta">
+              <a class="btn btn--solid" href="#contact">Start your project</a>
+              <a class="btn btn--ghost" href="#work">See the work</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <div class="media-stack">
+              <img class="media-tile" src="assets/placeholder-1.svg" alt="Showcase 1" />
+              <img class="media-tile" src="assets/placeholder-2.svg" alt="Showcase 2" />
+              <img class="media-tile" src="assets/placeholder-3.svg" alt="Showcase 3" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section features">
+        <div class="container">
+          <header class="section-header">
+            <h2>Built for clarity</h2>
+            <p>Sharp typography, generous spacing, and a strict black-and-white palette keep focus on your message.</p>
+          </header>
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Consistent system</h3>
+              <p>Design tokens power spacing, type, and color so your site stays cohesive as it grows.</p>
+            </article>
+            <article class="card card--inverted">
+              <h3>Accessible by default</h3>
+              <p>High contrast and semantic markup ensure readability for everyone.</p>
+            </article>
+            <article class="card">
+              <h3>Responsive layout</h3>
+              <p>Adaptive grid and components look great from mobile to desktop without extra effort.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section showcase">
+        <div class="container">
+          <header class="section-header">
+            <h2>Showcase</h2>
+            <p>Drop your own imagery or case studies here. Use consistent captions to keep it polished.</p>
+          </header>
+          <div class="grid grid-3 gallery">
+            <figure class="gallery-item">
+              <img src="assets/placeholder-1.svg" alt="Project Alpha" />
+              <figcaption>Project Alpha — Minimal landing page</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/placeholder-2.svg" alt="Project Beta" />
+              <figcaption>Project Beta — Product showcase</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/placeholder-3.svg" alt="Project Gamma" />
+              <figcaption>Project Gamma — Editorial layout</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials">
+        <div class="container">
+          <header class="section-header">
+            <h2>What clients say</h2>
+            <p>Short, specific quotes keep social proof believable and strong.</p>
+          </header>
+          <div class="grid grid-3">
+            <blockquote class="quote card card--inverted">
+              <p>“Elegant and remarkably fast to launch. The tonality fits premium brands.”</p>
+              <footer>— Taylor R., Creative Director</footer>
+            </blockquote>
+            <blockquote class="quote card">
+              <p>“A reliable, consistent system that keeps our content looking sharp.”</p>
+              <footer>— Morgan L., Product Lead</footer>
+            </blockquote>
+            <blockquote class="quote card">
+              <p>“Black-and-white never goes out of style. This template proves it.”</p>
+              <footer>— Jamie K., Founder</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing">
+        <div class="container">
+          <header class="section-header">
+            <h2>Simple pricing</h2>
+            <p>Use clear tiers and short descriptions. Keep decisions effortless.</p>
+          </header>
+          <div class="pricing-grid">
+            <article class="plan card">
+              <h3>Starter</h3>
+              <p class="price">$499</p>
+              <ul class="list">
+                <li>Single page site</li>
+                <li>Basic setup</li>
+                <li>Launch checklist</li>
+              </ul>
+              <a class="btn btn--solid btn--block" href="#contact">Choose Starter</a>
+            </article>
+            <article class="plan plan--highlight card card--inverted">
+              <h3>Professional</h3>
+              <p class="price">$1,499</p>
+              <ul class="list">
+                <li>Multi‑section site</li>
+                <li>Content integration</li>
+                <li>Performance tuning</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#contact">Choose Professional</a>
+            </article>
+            <article class="plan card">
+              <h3>Custom</h3>
+              <p class="price">Contact</p>
+              <ul class="list">
+                <li>Tailored scope</li>
+                <li>Complex pages</li>
+                <li>Ongoing support</li>
+              </ul>
+              <a class="btn btn--solid btn--block" href="#contact">Discuss Custom</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section cta">
+        <div class="container cta-inner">
+          <div class="cta-text">
+            <h2>Ready to begin?</h2>
+            <p>Send your copy and assets, and this template becomes your site—fast.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn--solid" href="mailto:hello@example.com">Email us</a>
+            <a class="btn btn--ghost" href="#top">Back to top</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand" href="#top" aria-label="Xpoint Home">
+          <img src="assets/logo.svg" alt="Xpoint logo small" width="24" height="24" />
+          <span class="brand-text">Xpoint</span>
+        </a>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <ul class="social">
+          <li><a href="#" aria-label="Twitter"><img src="assets/icon-twitter.svg" alt="" width="20" height="20" /></a></li>
+          <li><a href="#" aria-label="GitHub"><img src="assets/icon-github.svg" alt="" width="20" height="20" /></a></li>
+          <li><a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.svg" alt="" width="20" height="20" /></a></li>
+        </ul>
+      </div>
+      <div class="footer-meta">
+        <div class="container">
+          <p>© <span id="year"></span> Xpoint. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
