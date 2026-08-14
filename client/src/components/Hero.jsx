@@ -31,7 +31,7 @@ export default function Hero({ onOpenEarlyAccess, onOpenPartner, onOpenDownload 
 					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<button type="button" onClick={onOpenEarlyAccess} className="btn-primary w-full sm:w-auto">Get Early Access</button>
-					<a href="https://xpoint-uploads-prod.s3.ap-south-1.amazonaws.com/XpointDesktopApp/XPOINT+Setup+1.0.5.exe" download className="btn-solid-yellow w-full sm:w-auto text-center">Download for Desktop</a>
+					<a href="https://xpoint-uploads-prod.s3.ap-south-1.amazonaws.com/XpointDesktopApp/XPOINT+Setup+1.0.11.exe" download className="btn-solid-yellow w-full sm:w-auto text-center">Download for Desktop</a>
 				</motion.div>
 			</div>
 		</section>
