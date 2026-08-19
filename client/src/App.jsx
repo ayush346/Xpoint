@@ -19,8 +19,8 @@ export default function App() {
 
 	function downloadInstaller() {
 		const link = document.createElement("a");
-		link.href = "https://xpoint-uploads-prod.s3.ap-south-1.amazonaws.com/XpointDesktopApp/XPOINT+Setup+1.0.11.exe";
-		link.setAttribute("download", "XPOINT-Setup-1.0.11.exe");
+		link.href = "https://xpoint-uploads-prod.s3.ap-south-1.amazonaws.com/XpointDesktopApp/XPOINT+Setup+1.0.12.exe";
+		link.setAttribute("download", "XPOINT-Setup-1.0.12.exe");
 		document.body.appendChild(link);
 		link.click();
 		link.remove();
